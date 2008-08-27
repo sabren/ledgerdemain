@@ -7,6 +7,7 @@
 <!-- imports -->
 <style type="text/css">
 @import url("reconcile.css");
+@import url("flexigrid/flexigrid.css");
 
 td { background: #eee; }
 
@@ -18,6 +19,7 @@ td { background: #eee; }
 <script type="text/javascript" src="sarissa_ieemu_xpath.js" ></script>
 <script type="text/javascript" src="jquery.xslTransform.js" ></script>
 <script type="text/javascript" src="/work/jsunit/app/jsUnitCore.js"></script>
+<script type="text/javascript" src="flexigrid/flexigrid.pack.js"></script>
 
 <script type="text/javascript">
 var $p = $; // prototype
@@ -37,8 +39,10 @@ function test_makeCard() {
 
 
 var xml;
-function loadXML( ) {
-    $j('#content').getTransform('ledger.xsl','2007.xml');
+function loadXML(xmlUrl) {
+    $j('#content').text('loading. please wait. this may take up to a minute :/ ');
+    $j('#content').getTransform('ledger.xsl',xmlUrl);
+    $j("#content table").attr("id","ledger").flexigrid();
 }
 
 
@@ -57,7 +61,8 @@ function loadXML( ) {
 
 <div id="appbar">
   <span style="font-size: 20pt; float:right">reconciler</span>
-  <button onclick="loadXML()">load xml</button>
+  xml url: <input type="text" id="xmlUrl" value="2007.xml" />
+  <button onclick="loadXML($j('#xmlUrl').attr('value'))">load</button>
 </div>
 
 <div id="content">
@@ -68,7 +73,6 @@ function loadXML( ) {
 <!-- MAIN CODE ================================================================= --> 
 
 $j(document).ready(function() {
-   $j('#content').text('hello world');
 });
 
 </script>

@@ -16,28 +16,45 @@
 <xsl:output method="html" encoding="utf-8"/>
 <xsl:template match="/">
 
-<table width="817" border="1">
-  <tr>
-    <th width="94" scope="col">Date</th>
-    <th width="94" scope="col">Eff Date</th>
-    <th width="31" scope="col">Num</th>
-    <th width="234" scope="col">Party</th>
-    <th width="153" scope="col">Account</th>
-    <th width="98" scope="col">Amount</th>
-    <th width="67" scope="col">Balance</th>
+<table>
+  <thead>
+    <tr>
+      <th width="75">Date</th>
+      <th width="75">Eff Date</th>
+      <th width="15">Clr?</th>
+      <th width="150">Party</th>
+      <th width="150">Account</th>
+      <th width="50">Amount</th>
+      <th width="50">Balance</th>
     </tr>
+  </thead>
+  <tbody>
   <xsl:for-each select="ledger/entry">
-    <tr class="entry">
+    <tr>
       <td><xsl:value-of select="en-date"/></td>
-      <td><xsl:value-of select="en-date_eff"/></td>
-      <td>&nbsp;</td>
+      <td>
+        <xsl:choose>
+          <xsl:when test="en-date_eff">
+            <xsl:value-of select="en-date_eff"/>
+          </xsl:when>
+          <xsl:otherwise>&nbsp;</xsl:otherwise>
+        </xsl:choose>
+      </td>
+      <td>
+        <xsl:choose>
+          <xsl:when test="en-transaction/transaction/tr-cleared">
+            <span class="cleared">*</span>
+          </xsl:when>
+          <xsl:otherwise>&nbsp;</xsl:otherwise>
+        </xsl:choose>
+      </td>
       <td><xsl:value-of select="en-payee"/></td>
       <td><xsl:value-of select="en-transactions/transaction/tr-account"/></td>
       <td><xsl:value-of select="en-transactions/transaction/tr-amount/value/amount"/></td>
-      <td>&nbsp;</td>
+      <td>0</td>
     </tr>
   </xsl:for-each>
-  
+  </tbody>
 </table>
 </xsl:template>
 </xsl:stylesheet>
