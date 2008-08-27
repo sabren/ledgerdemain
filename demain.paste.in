@@ -1,0 +1,13 @@
+#!/bin/env paster
+
+[server:main]
+use = egg:Paste#http
+host = 127.0.0.1
+port = 8099
+
+[app:main]
+paste.app_factory = demain:app_factory
+
+[exe]
+command = serve
+daemon = false

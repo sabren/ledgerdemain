@@ -17,6 +17,26 @@ Ledger's xml output is ill-formed xml at the moment.
 Use "./led2xml filename.led" to generate clean xml. 
 
 
+WEB SERVER
+----------
+
+Uses python and wsgi.
+
+You probably want easy_install if you don't have it:
+
+   wget http://peak.telecommunity.com/dist/ez_setup.py
+   python ez_setup.py
+
+Then:
+
+   easy_install Paste PasteDeploy PasteScript
+   cp demain.paste.in demain.paste
+   
+   # (edit host/port in demain.paste if you want)
+   
+   paster demain.paste
+
+
 
 LICENSE
 -------
