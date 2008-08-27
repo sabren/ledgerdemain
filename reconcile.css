@@ -1,0 +1,22 @@
+th {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10pt;
+	background-color: #CCCCCC;
+	text-align: left;
+}
+th, td {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10pt;
+}
+#content {
+	margin-top: 20px;
+}
+
+#appbar {
+	font-family: "Franklin Gothic Demi Cond";
+	color: #FFFFFF;
+	background-color: #333333;
+	padding: 10px;
+    padding-bottom: 20px;
+	margin:0px;
+}

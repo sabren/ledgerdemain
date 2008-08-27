@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>reconciler</title>
+
+<!-- imports -->
+<style type="text/css">
+@import url("reconcile.css");
+
+td { background: #eee; }
+
+</style>
+<script type="text/javascript" src="jquery-1.2.6.js" ></script>
+<script type="text/javascript" src="jquery.ui.all.js" ></script>
+<script type="text/javascript" src="jquery-dom.js" ></script>
+<script type="text/javascript" src="sarissa.js" ></script>
+<script type="text/javascript" src="sarissa_ieemu_xpath.js" ></script>
+<script type="text/javascript" src="jquery.xslTransform.js" ></script>
+<script type="text/javascript" src="/work/jsunit/app/jsUnitCore.js"></script>
+
+<script type="text/javascript">
+var $p = $; // prototype
+var $j = jQuery.noConflict();
+$ = $j;
+
+<!-- TEST SUITE (jsUnit) =========================================== -->
+
+function setUp() {
+}
+
+function test_makeCard() {
+}
+
+
+<!-- FUNCTIONS ================================================================== -->
+
+
+var xml;
+function loadXML( ) {
+    $j('#content').getTransform('ledger.xsl','2007.xml');
+}
+
+
+
+</script>
+</head>
+<body>
+
+<!-- WIDGETS =================================================================== --> 
+
+<div id="widgets">
+
+</div>
+
+<!-- USER INTERFACE ============================================================= --> 
+
+<div id="appbar">
+  <span style="font-size: 20pt; float:right">reconciler</span>
+  <button onclick="loadXML()">load xml</button>
+</div>
+
+<div id="content">
+</div>
+
+
+<script type="text/javascript">
+<!-- MAIN CODE ================================================================= --> 
+
+$j(document).ready(function() {
+   $j('#content').text('hello world');
+});
+
+</script>
+</body>
+</html>
