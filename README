@@ -1,0 +1,29 @@
+
+ABOUT
+-----
+
+Ledgerdemain is a simple jquery based html frontend for ledger.
+
+Legder is an awesome text-based accounting package available from:
+    
+    http://www.newartisans.com/software/ledger.html
+
+
+USING
+-----
+
+Ledger's xml output is ill-formed xml at the moment.
+
+Use "./led2xml filename.led" to generate clean xml. 
+
+
+
+LICENSE
+-------
+
+my code is freely available under the terms of the BSD license
+(same license as ledger)
+
+
+@TODO: track down licenses on all the javascript packages.
+
